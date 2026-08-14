@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import { describe, it, expect } from "vitest";
-import ProductCard from "../components/ProductCard";
+import ProductCard from "../../components/ProductCard";
 
 const product = {
   id: 1,

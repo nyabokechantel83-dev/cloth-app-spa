@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import { describe, it, expect } from "vitest";
-import ProductList from "../components/ProductList";
+import ProductList from "../../components/ProductList";
 
 const products = [
   {
@@ -23,7 +23,7 @@ describe("ProductList", () => {
     render(
       <MemoryRouter>
         <ProductList products={products} />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     expect(screen.getByText("Black Dress")).toBeInTheDocument();
@@ -34,7 +34,7 @@ describe("ProductList", () => {
     render(
       <MemoryRouter>
         <ProductList products={products} />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     const links = screen.getAllByRole("link", {
@@ -48,23 +48,19 @@ describe("ProductList", () => {
     render(
       <MemoryRouter>
         <ProductList products={[]} />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
-    expect(
-      screen.getByText("No products found")
-    ).toBeInTheDocument();
+    expect(screen.getByText("No products found")).toBeInTheDocument();
   });
 
   it("shows No products found when products are not provided", () => {
     render(
       <MemoryRouter>
         <ProductList />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
-    expect(
-      screen.getByText("No products found")
-    ).toBeInTheDocument();
+    expect(screen.getByText("No products found")).toBeInTheDocument();
   });
 });
