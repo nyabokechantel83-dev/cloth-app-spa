@@ -6,7 +6,7 @@ function renderHome() {
   render(
     <MemoryRouter>
       <Home />
-    </MemoryRouter>
+    </MemoryRouter>,
   );
 }
 
@@ -24,7 +24,7 @@ test("renders the description", () => {
   renderHome();
 
   const description = screen.getByText(
-    "Discover stylish clothing for every occasion."
+    "Discover stylish clothing for every occasion.",
   );
 
   expect(description).toBeInTheDocument();
