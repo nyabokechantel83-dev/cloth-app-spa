@@ -6,24 +6,15 @@ function Navbar() {
       <h1 className="text-xl font-bold text-rose-600">Cloth App</h1>
 
       <div className="flex gap-6">
-        <NavLink
-          to="/"
-          className="hover:text-rose-600"
-        >
+        <NavLink to="/" className="hover:text-rose-600">
           Home
         </NavLink>
 
-        <NavLink
-          to="/shop"
-          className="hover:text-rose-600"
-        >
+        <NavLink to="/shop" className="hover:text-rose-600">
           Shop
         </NavLink>
 
-        <NavLink
-          to="/admin"
-          className="hover:text-rose-600"
-        >
+        <NavLink to="/admin" className="hover:text-rose-600">
           Admin
         </NavLink>
       </div>
