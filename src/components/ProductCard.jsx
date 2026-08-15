@@ -4,17 +4,17 @@ function ProductCard({ product}) {
     return (
         <div className="rounded-xl bg-white p-4 ">
             <img className="h-64 w-full rounded-lg object-cover"
-              src={product.img}
-              alt={product.name}
+              src={product.image}
+              alt={product.title}
             />
 
             <div className="mt-4">
                 <h3 className="text-lg font-semibold">
-                    {product.name}
+                    {product.title}
                 </h3>
 
                 <p className="mt-2 text-gray-600">
-                    ksh {product.price}
+                   Ksh {product.price}
                 </p>
 
                 <Link
