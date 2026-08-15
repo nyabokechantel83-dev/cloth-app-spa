@@ -2,35 +2,35 @@
   "products": [
     {
       "id": "1",
-      "title": "Black Dress",
+      "name": " Black Dress",
       "price": 5000,
       "image": "https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=600&q=80",
       "category": "Dresses",
-      "description": "A simple and elegant black dress for any occasion."
+      "description": "A simple and elegant  Black dress for any occasion."
     },
     {
       "id": "2",
-      "title": "Blue Jeans",
+      "name": " Blue Jeans",
       "price": 2000,
       "image": "https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=600&q=80",
       "category": "Jeans",
-      "description": "Comfortable blue jeans for everyday wear."
+      "description": "Comfortable  Blue jeans for everyday wear."
     },
     {
       "id": "3",
-      "title": "White Shirt",
+      "name": " White Shirt",
       "price": 3500,
       "image": "https://images.unsplash.com/photo-1603252110481-7ba873bf42ab?auto=format&fit=crop&w=600&q=80",
       "category": "Shirts",
-      "description": "A classic white shirt for every occasion."
+      "description": "A classic  white shirt for every occasion."
     },
     {
       "id": "4",
-      "title": "Brown Handbag",
+      "name": " Brown Handbag",
       "price": 4500,
       "image": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=600&q=80",
       "category": "Accessories",
-      "description": "A stylish handbag to complete your outfit."
+      "description": "A stylish Brown handbag to complete your outfit."
     }
   ]
 }
