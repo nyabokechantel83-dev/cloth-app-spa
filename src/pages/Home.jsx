@@ -36,13 +36,13 @@ function Home() {
         </div>
       </section>
 
-      <section className="px-6 py-12">
+      <section className="px-6 py-4">
         <div className="mx-auto max-w-6xl text-center">
           <p className="text-sm font-semibold uppercase tracking-widest text-orange-600">
             Our Collection
           </p>
 
-          <h2 className="mb-8 mt-2 text-3xl font-bold text-gray-900">
+          <h2 className="mb-6 mt-2 text-3xl font-bold text-gray-900">
             Find Your Style
           </h2>
 
@@ -82,7 +82,7 @@ function Home() {
         </Link>
       </section>
 
-      <footer className="mt-auto bg-gray-900 px-6 py-5 text-center text-sm text-white">
+      <footer className="bg-gray-900 px-6 py-5 text-center text-sm text-white">
         © 2026 Cloth App. All rights reserved.
       </footer>
     </main>
