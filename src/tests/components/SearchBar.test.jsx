@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, it, expect, vi } from "vitest";
-import SearchBar from "../../components/SearchBar";
+import Search from "../../components/SearchBar";
 
 describe("Search", () => {
   it("renders the search input", () => {

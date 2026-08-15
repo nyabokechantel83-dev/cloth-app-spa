@@ -1,6 +1,6 @@
 import { renderHook, waitFor } from "@testing-library/react";
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
-import useFetch from "../hooks/useFetch";
+import useFetch from "../../hooks/useFetch";
 
 describe("useFetch", () => {
   beforeEach(() => {

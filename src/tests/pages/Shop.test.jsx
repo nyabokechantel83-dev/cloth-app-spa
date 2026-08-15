@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { MemoryRouter } from "react-router-dom";
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import Shop from "../pages/Shop";
+import Shop from "../../pages/Shop";
 
 const mockProducts = [
   {
