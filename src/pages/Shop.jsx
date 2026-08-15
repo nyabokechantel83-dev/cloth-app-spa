@@ -19,19 +19,19 @@ function Shop() {
 
   if (loading) {
     return (
-        <p className="p-8 text-center">
-            Loading products...
-        </p>
+      <p className="p-8 text-center">
+        Loading products...
+      </p>
     );
-}
+  }
 
-if (error) {
+  if (error) {
     return (
-        <p className="p-8 text-center text-red-600">
-            {error}
-        </p>
+      <p className="p-8 text-center text-red-600">
+        {error}
+      </p>
     );
-}
+  }
 
   return (
     <main className="mx-auto max-w-7xl px-6 py-10">
@@ -40,6 +40,7 @@ if (error) {
       </h1>
 
       <SearchBar onSearch={handleSearch} />
+
       <ProductList products={filteredProducts} />
     </main>
   );
