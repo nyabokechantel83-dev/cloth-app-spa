@@ -9,9 +9,9 @@ function Shop() {
     const {data: products, loading, error } = useFetch(PRODUCTS_URL);
     const [searchTerm, setSearchTerm] = useState("");
 
-    const filteredProducts = (products || []).filter((product)) => (
-        product.title.toLowercase() .includes(searchTerm.toLowerCase())
-    );
+     const filteredProducts = (products || []).filter((product) => (
+        product.title.toLowerCase() .includes(searchTerm.toLowerCase())
+    ));
 
     function handleSearch(value) {
         setSearchTerm(value)
