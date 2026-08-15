@@ -31,7 +31,7 @@ function Shop() {
                 Shop
             </h1>
 
-            <search onSearch={handleSearch} />
+            <SearchBar onSearch={handleSearch} />
             <ProductList products={filteredProducts} />
         </main>
 
