@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import { describe, it, expect } from "vitest";
 import ProductCard from "../../components/ProductCard";
+import { ShopProvider } from "../../context/ShopContext";
 
 const product = {
   id: 1,
@@ -10,73 +11,52 @@ const product = {
   image: "dress.jpg",
 };
 
+function renderProductCard() {
+  return render(
+    <MemoryRouter>
+      <ShopProvider>
+        <ProductCard product={product} />
+      </ShopProvider>
+    </MemoryRouter>
+  );
+}
+
 describe("ProductCard", () => {
   it("renders the product title", () => {
-    render(
-      <MemoryRouter>
-        <ProductCard product={product} />
-      </MemoryRouter>
-    );
+    renderProductCard();
 
     expect(
-      screen.getByText("Black Dress")
+      screen.getByRole("heading", { name: "Black Dress" })
     ).toBeInTheDocument();
   });
 
   it("renders the product price", () => {
-    render(
-      <MemoryRouter>
-        <ProductCard product={product} />
-      </MemoryRouter>
-    );
+    renderProductCard();
 
-    expect(
-      screen.getByText("Ksh 50")
-    ).toBeInTheDocument();
+    expect(screen.getByText("Ksh 50")).toBeInTheDocument();
   });
 
   it("renders the product image", () => {
-    render(
-      <MemoryRouter>
-        <ProductCard product={product} />
-      </MemoryRouter>
-    );
+    renderProductCard();
 
     expect(
-      screen.getByRole("img", {
-        name: "Black Dress",
-      })
+      screen.getByRole("img", { name: "Black Dress" })
     ).toBeInTheDocument();
   });
 
   it("renders the View Details link", () => {
-    render(
-      <MemoryRouter>
-        <ProductCard product={product} />
-      </MemoryRouter>
-    );
+    renderProductCard();
 
     expect(
-      screen.getByRole("link", {
-        name: "View Details",
-      })
+      screen.getByRole("link", { name: "View Details" })
     ).toBeInTheDocument();
   });
 
   it("links to the correct product details page", () => {
-    render(
-      <MemoryRouter>
-        <ProductCard product={product} />
-      </MemoryRouter>
-    );
+    renderProductCard();
 
-    const link = screen.getByRole("link", {
-      name: "View Details",
-    });
-
-    expect(link).toHaveAttribute(
-      "href",
-      "/products/1"
-    );
+    expect(
+      screen.getByRole("link", { name: "View Details" })
+    ).toHaveAttribute("href", "/products/1");
   });
 });
