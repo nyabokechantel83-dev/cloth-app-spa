@@ -3,7 +3,7 @@ import useFetch from "../hooks/useFetch";
 import SearchBar from "../components/SearchBar";
 import ProductList from "../components/ProductList";
 
-const PRODUCTS_URL = "https://api.com/products";
+const PRODUCTS_URL = "http://localhost:6001/products";
 
 function Shop() {
   const { data: products, loading, error } = useFetch(PRODUCTS_URL);
