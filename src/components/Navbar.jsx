@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 function Navbar() {
   return (
     <nav className="flex justify-between items-center p-4 bg-rose-100 text-gray-800">
-      <h1 className="text-xl font-bold text-rose-600">Cloth App</h1>
+      <h1 className="text-xl font-bold text-rose-600">JOVETA CLOTHLINE</h1>
 
       <div className="flex gap-6">
         <NavLink to="/" className="hover:text-rose-600">

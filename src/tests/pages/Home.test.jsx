@@ -14,7 +14,7 @@ test("renders the home page", () => {
   renderHome();
 
   const heading = screen.getByRole("heading", {
-    name: "Welcome to Cloth App",
+    name: /Style That/i,
   });
 
   expect(heading).toBeInTheDocument();
@@ -24,7 +24,7 @@ test("renders the description", () => {
   renderHome();
 
   const description = screen.getByText(
-    "Discover stylish clothing for every occasion.",
+    /Discover stylish clothing for every occasion/i,
   );
 
   expect(description).toBeInTheDocument();
@@ -34,7 +34,7 @@ test("renders the Shop Now link", () => {
   renderHome();
 
   const shopLink = screen.getByRole("link", {
-    name: "Shop Now",
+    name: /Shop Now/,
   });
 
   expect(shopLink).toBeInTheDocument();

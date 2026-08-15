@@ -2,21 +2,89 @@ import { Link } from "react-router-dom";
 
 function Home() {
   return (
-    <main className="min-h-screen bg-gray-100">
-      <section className="px-6 py-20 text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Cloth App</h1>
+    <main className="flex min-h-screen flex-col bg-stone-50">
+      <section className="bg-gradient-to-r from-orange-100 via-rose-100 to-purple-100">
+        <div className="mx-auto grid max-w-6xl items-center gap-8 px-6 py-14 md:grid-cols-2">
+          <div>
+            <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-orange-700">
+              New Collection
+            </p>
 
-        <p className="text-gray-600 mb-8">
-          Discover stylish clothing for every occasion.
+            <h1 className="mb-5 text-4xl font-bold text-gray-900 md:text-5xl">
+              Style That
+              <span className="block text-orange-600">Speaks For You</span>
+            </h1>
+
+            <p className="mb-7 max-w-lg text-gray-600">
+              Discover stylish clothing for every occasion and find pieces
+              that match your unique style.
+            </p>
+
+            <Link
+              to="/shop"
+              className="inline-block rounded-full bg-orange-600 px-7 py-3 font-semibold text-white hover:bg-orange-700"
+            >
+              Shop Now
+            </Link>
+          </div>
+
+          <img
+            src="https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=900&q=80"
+            alt="Clothing collection"
+            className="h-96 w-full max-w-md rounded-2xl object-cover shadow-lg"
+          />
+        </div>
+      </section>
+
+      <section className="px-6 py-12">
+        <div className="mx-auto max-w-6xl text-center">
+          <p className="text-sm font-semibold uppercase tracking-widest text-orange-600">
+            Our Collection
+          </p>
+
+          <h2 className="mb-8 mt-2 text-3xl font-bold text-gray-900">
+            Find Your Style
+          </h2>
+
+          <div className="grid gap-5 md:grid-cols-3">
+            <div className="rounded-xl bg-orange-100 p-6">
+              <h3 className="font-bold text-orange-900">Women's Fashion</h3>
+              <p className="mt-2 text-orange-800">Elegant styles for you.</p>
+            </div>
+
+            <div className="rounded-xl bg-purple-100 p-6">
+              <h3 className="font-bold text-purple-900">Men's Fashion</h3>
+              <p className="mt-2 text-purple-800">Modern everyday styles.</p>
+            </div>
+
+            <div className="rounded-xl bg-rose-100 p-6">
+              <h3 className="font-bold text-rose-900">Accessories</h3>
+              <p className="mt-2 text-rose-800">Complete your look.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-orange-500 px-6 py-10 text-center">
+        <h2 className="mb-3 text-3xl font-bold text-white">
+          Ready to Find Your Style?
+        </h2>
+
+        <p className="mb-5 text-white">
+          Explore our latest collection today.
         </p>
 
         <Link
           to="/shop"
-          className="inline-block bg-rose-500 text-white px-6 py-3 rounded-lg hover:bg-rose-600"
+          className="inline-block rounded-full bg-white px-7 py-3 font-semibold text-orange-600 hover:bg-orange-50"
         >
-          Shop Now
+          Explore Shop
         </Link>
       </section>
+
+      <footer className="mt-auto bg-gray-900 px-6 py-5 text-center text-sm text-white">
+        © 2026 Cloth App. All rights reserved.
+      </footer>
     </main>
   );
 }
