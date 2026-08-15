@@ -1,10 +1,15 @@
 import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import { MemoryRouter } from "react-router-dom";
+import userEvent from "@testing-library/user-event";
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import Shop from "../../pages/Shop";
 
-const mockProducts = [
+import Shop from "../../pages/Shop";
+import useFetch from "../../hooks/useFetch";
+import { ShopProvider } from "../../context/ShopContext";
+
+vi.mock("../../hooks/useFetch");
+
+const products = [
   {
     id: 1,
     title: "Black Dress",
@@ -19,41 +24,46 @@ const mockProducts = [
   },
 ];
 
-beforeEach(() => {
-  vi.restoreAllMocks();
-});
+function renderShop() {
+  return render(
+    <MemoryRouter>
+      <ShopProvider>
+        <Shop />
+      </ShopProvider>
+    </MemoryRouter>
+  );
+}
 
 describe("Shop", () => {
-  it("shows loading state", () => {
-    vi.spyOn(globalThis, "fetch").mockImplementation(
-      () => new Promise(() => {})
-    );
+  beforeEach(() => {
+    vi.clearAllMocks();
+  });
 
-    render(
-      <MemoryRouter>
-        <Shop />
-      </MemoryRouter>
-    );
+  it("shows loading state", () => {
+    useFetch.mockReturnValue({
+      data: [],
+      loading: true,
+      error: null,
+    });
+
+    renderShop();
 
     expect(
       screen.getByText("Loading products...")
     ).toBeInTheDocument();
   });
 
-  it("displays products after a successful fetch", async () => {
-    vi.spyOn(globalThis, "fetch").mockResolvedValue({
-      ok: true,
-      json: async () => mockProducts,
+  it("displays products after a successful fetch", () => {
+    useFetch.mockReturnValue({
+      data: products,
+      loading: false,
+      error: null,
     });
 
-    render(
-      <MemoryRouter>
-        <Shop />
-      </MemoryRouter>
-    );
+    renderShop();
 
     expect(
-      await screen.findByText("Black Dress")
+      screen.getByText("Black Dress")
     ).toBeInTheDocument();
 
     expect(
@@ -61,49 +71,42 @@ describe("Shop", () => {
     ).toBeInTheDocument();
   });
 
-  it("shows an error when the fetch fails", async () => {
-    vi.spyOn(globalThis, "fetch").mockRejectedValue(
-      new Error("Network error")
-    );
+  it("shows an error when the fetch fails", () => {
+    useFetch.mockReturnValue({
+      data: [],
+      loading: false,
+      error: "Failed to fetch data",
+    });
 
-    render(
-      <MemoryRouter>
-        <Shop />
-      </MemoryRouter>
-    );
+    renderShop();
 
     expect(
-      await screen.findByText("Network error")
+      screen.getByText("Failed to fetch data")
     ).toBeInTheDocument();
   });
 
   it("filters products when the user searches", async () => {
-    vi.spyOn(globalThis, "fetch").mockResolvedValue({
-      ok: true,
-      json: async () => mockProducts,
-    });
-
     const user = userEvent.setup();
 
-    render(
-      <MemoryRouter>
-        <Shop />
-      </MemoryRouter>
-    );
+    useFetch.mockReturnValue({
+      data: products,
+      loading: false,
+      error: null,
+    });
+
+    renderShop();
 
     expect(
-      await screen.findByText("Black Dress")
+      screen.getByText("Black Dress")
     ).toBeInTheDocument();
 
     expect(
       screen.getByText("Blue Jeans")
     ).toBeInTheDocument();
 
-    const searchInput = screen.getByRole("textbox", {
-      name: "Search Products",
-    });
+    const searchInput = screen.getByRole("textbox");
 
-    await user.type(searchInput, "dress");
+    await user.type(searchInput, "Black");
 
     expect(
       screen.getByText("Black Dress")
