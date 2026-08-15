@@ -14,6 +14,10 @@ function Navbar() {
           Shop
         </NavLink>
 
+        <NavLink to="/cart" className="hover:text-rose-600">
+          Cart
+        </NavLink>
+
         <NavLink to="/admin" className="hover:text-rose-600">
           Admin
         </NavLink>
