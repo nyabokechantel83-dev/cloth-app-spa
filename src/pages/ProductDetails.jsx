@@ -1,7 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 
-const PRODUCTS_URL = "http://localhost:6001/products";
+const PRODUCTS_URL = "http://localhost:3000/products";
 
 function ProductDetails() {
     const { id } = useParams();
