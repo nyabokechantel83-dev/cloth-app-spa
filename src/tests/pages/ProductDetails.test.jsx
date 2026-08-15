@@ -11,7 +11,7 @@ const product = {
   name: "Classic Shirt",
   category: "Men",
   price: 2500,
-  image: "/shirt.jpg",
+  image: "https://images.unsplash.com/photo-1603252110481-7ba873bf42ab?auto=format&fit=crop&w=600&q=80",
   description: "A comfortable classic shirt.",
 };
 
