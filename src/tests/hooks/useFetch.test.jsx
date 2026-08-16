@@ -17,7 +17,7 @@ describe("useFetch", () => {
     );
 
     const { result } = renderHook(() =>
-      useFetch("https://example.com/products")
+      useFetch("http://localhost:3000/products")
     );
 
     expect(result.current.loading).toBe(true);
@@ -45,7 +45,7 @@ describe("useFetch", () => {
     });
 
     const { result } = renderHook(() =>
-      useFetch("https://example.com/products")
+      useFetch("http://localhost:3000/products")
     );
 
     await waitFor(() => {
@@ -62,7 +62,7 @@ describe("useFetch", () => {
     });
 
     const { result } = renderHook(() =>
-      useFetch("https://example.com/products")
+      useFetch("http://localhost:3000/products")
     );
 
     await waitFor(() => {
@@ -78,7 +78,7 @@ describe("useFetch", () => {
     );
 
     const { result } = renderHook(() =>
-      useFetch("https://example.com/products")
+      useFetch("http://localhost:3000/products")
     );
 
     await waitFor(() => {
@@ -98,7 +98,7 @@ describe("useFetch", () => {
       ({ url }) => useFetch(url),
       {
         initialProps: {
-          url: "https://example.com/products",
+          url: "http://localhost:3000/products",
         },
       }
     );
@@ -108,12 +108,12 @@ describe("useFetch", () => {
     });
 
     rerender({
-      url: "https://example.com/new-products",
+      url: "http://localhost:3000/products",
     });
 
     await waitFor(() => {
       expect(globalThis.fetch).toHaveBeenCalledWith(
-        "https://example.com/new-products"
+        "http://localhost:3000/products"
       );
     });
   });
