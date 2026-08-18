@@ -24,6 +24,14 @@ function Navbar() {
           Checkout
         </NavLink>
 
+        <NavLink to="/login" className="hover:text-orange-600">
+          Login
+        </NavLink>
+
+        <NavLink to="/signup" className="hover:text-orange-600">
+          Sign Up
+        </NavLink>
+
         <NavLink to="/admin" className="hover:text-orange-600">
           Admin
         </NavLink>
