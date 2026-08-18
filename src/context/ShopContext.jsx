@@ -66,6 +66,12 @@ export function ShopProvider({ children }) {
         .filter((item) => item.quantity > 0)
     );
   }
+  
+  function clearCart() {
+    setCart([]);
+  }
+  
+
 
   function addProduct(product) {
     setProducts((currentProducts) => [
@@ -97,6 +103,7 @@ export function ShopProvider({ children }) {
         removeFromCart,
         increaseQuantity,
         decreaseQuantity,
+        clearCart,
         addProduct,
         deleteProduct,
         total,
