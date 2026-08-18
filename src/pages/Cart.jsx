@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { useShop } from "../context/ShopContext";
 
 function Cart() {
@@ -60,9 +61,11 @@ function Cart() {
 
       <h2>Total: KSh {total}</h2>
 
-      <button>
+      <Link className="inline-block rounded-lg br-orange-500 px-6 py-3 font-semibold text-white hover:bg-orange-600"
+         to="/checkout"
+      >
         Checkout
-      </button>
+      </Link>   
     </div>
   );
 }
