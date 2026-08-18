@@ -12,13 +12,13 @@ vi.mock("../../hooks/useFetch");
 const products = [
   {
     id: 1,
-    title: "Black Dress",
+    name: "Black Dress",
     price: 50,
     image: "dress.jpg",
   },
   {
     id: 2,
-    title: "Blue Jeans",
+    name: "Blue Jeans",
     price: 40,
     image: "jeans.jpg",
   },
