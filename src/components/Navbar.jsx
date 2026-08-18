@@ -2,51 +2,23 @@ import { NavLink } from "react-router-dom";
 
 function Navbar() {
   return (
-    <nav className="flex items-center justify-between bg-purple-700 px-10 py-5 text-white shadow-md">
-      <h1 className="text-2xl font-bold tracking-wide text-white">
-        JOVETA CLOTHLINE
-      </h1>
+    <nav className="flex justify-between items-center p-4 bg-rose-100 text-gray-800">
+      <h1 className="text-xl font-bold text-rose-600">JOVETA CLOTHLINE</h1>
 
-      <div className="flex gap-8">
-        <NavLink
-          to="/"
-          className="font-medium text-white hover:text-purple-200"
-        >
+      <div className="flex gap-6">
+        <NavLink to="/" className="hover:text-rose-600">
           Home
         </NavLink>
 
-        <NavLink
-          to="/shop"
-          className="font-medium text-white hover:text-purple-200"
-        >
+        <NavLink to="/shop" className="hover:text-rose-600">
           Shop
         </NavLink>
 
-        <NavLink
-          to="/cart"
-          className="font-medium text-white hover:text-purple-200"
-        >
+        <NavLink to="/cart" className="hover:text-rose-600">
           Cart
         </NavLink>
 
-        <NavLink
-          to="/login"
-          className="font-medium text-white hover:text-purple-200"
-        >
-          Login
-        </NavLink>
-
-        <NavLink
-          to="/signup"
-          className="font-medium text-white hover:text-purple-200"
-        >
-          Sign Up
-        </NavLink>
-
-        <NavLink
-          to="/admin"
-          className="font-medium text-white hover:text-purple-200"
-        >
+        <NavLink to="/admin" className="hover:text-rose-600">
           Admin
         </NavLink>
       </div>
