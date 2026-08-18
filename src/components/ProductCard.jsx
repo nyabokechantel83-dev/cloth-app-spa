@@ -9,12 +9,12 @@ function ProductCard({ product }) {
       <img
         className="h-64 w-full rounded-lg object-cover"
         src={product.image}
-        alt={product.title}
+        alt={product.name}
       />
 
       <div className="mt-4">
         <h3 className="text-lg font-semibold">
-          {product.title}
+          {product.name}
         </h3>
 
         <p className="mt-2 text-gray-600">

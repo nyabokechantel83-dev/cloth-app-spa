@@ -3,7 +3,7 @@ import useFetch from "../hooks/useFetch";
 import SearchBar from "../components/SearchBar";
 import ProductList from "../components/ProductList";
 
-const PRODUCTS_URL = "http://localhost:3000/products";
+const PRODUCTS_URL = "https://my-json-server.typicode.com/nyabokechantel83-dev/cloth-app-spa/products";
 
 function Shop() {
   const { data: products, loading, error } = useFetch(PRODUCTS_URL);
@@ -46,7 +46,14 @@ function Shop() {
       <SearchBar onSearch={handleSearch} />
 
       <ProductList products={filteredProducts} />
+
+      <footer className="bg-gray-900 px-6 py-5 text-center text-sm text-white">
+        © 2026 JOVETA CLOTHLINE. All rights reserved.
+      </footer>
+      
     </main>
+
+    
   );
 }
 

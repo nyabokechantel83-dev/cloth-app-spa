@@ -1,7 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 
-const PRODUCTS_URL = "http://localhost:3000/products";
+const PRODUCTS_URL = "https://my-json-server.typicode.com/nyabokechantel83-dev/cloth-app-spa/products";
 
 function ProductDetails() {
     const { id } = useParams();
