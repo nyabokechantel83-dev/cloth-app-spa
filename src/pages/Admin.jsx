@@ -36,10 +36,9 @@ function Admin() {
                   />
 
                   <div className="p-5">
-                    <h3 className="text-lg font-semibold text-gray-950">
-                      {product.name}
-                    </h3>
-
+                   <h3 className="text-lg font-semibold text-gray-950">
+  {product.name || product.title}
+</h3> 
                     <p className="mt-2 font-medium text-gray-800">
                       KSh {product.price}
                     </p>
