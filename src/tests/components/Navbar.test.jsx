@@ -1,36 +1,47 @@
-import { render, screen } from '@testing-library/react';
-import { MemoryRouter } from 'react-router-dom';
-import Navbar from '../../components/Navbar';
+import { render, screen } from "@testing-library/react";
+import { MemoryRouter } from "react-router-dom";
+import Navbar from "../../components/Navbar";
+import { AuthProvider } from "../../context/AuthContext";
 
 function renderNavbar() {
-    render(
-        <MemoryRouter>
-            <Navbar />
-        </MemoryRouter>
-    );
+  render(
+    <MemoryRouter>
+      <AuthProvider>
+        <Navbar />
+      </AuthProvider>
+    </MemoryRouter>
+  );
 }
 
-test('renders the navigation links', () => {
-    renderNavbar();
-    const navLinks = screen.getByRole('navigation');
-    expect(navLinks).toBeInTheDocument();
+test("renders the navigation bar", () => {
+  renderNavbar();
+
+  expect(screen.getByRole("navigation")).toBeInTheDocument();
 });
 
-test('renders the correct number of links', () => {
-    renderNavbar();
-    const links = screen.getAllByRole('link');
-    expect(links).toHaveLength(4);
+test("renders the public navigation links when logged out", () => {
+  renderNavbar();
+
+  expect(screen.getByRole("link", { name: "Home" })).toBeInTheDocument();
+  expect(screen.getByRole("link", { name: "Shop" })).toBeInTheDocument();
+  expect(screen.getByRole("link", { name: "Cart" })).toBeInTheDocument();
+  expect(screen.getByRole("link", { name: "Checkout" })).toBeInTheDocument();
+  expect(screen.getByRole("link", { name: "Login" })).toBeInTheDocument();
+  expect(screen.getByRole("link", { name: "Sign Up" })).toBeInTheDocument();
 });
 
-test('renders the correct link text', () => {
-    renderNavbar();
-    const homeLink = screen.getByRole('link', { name: 'Home' });
-    const shopLink = screen.getByRole('link', { name: 'Shop' });
-    const cartLink = screen.getByRole('link', { name: 'Cart' });
-    const adminLink = screen.getByRole('link', { name: 'Admin' });
+test("does not show Admin when logged out", () => {
+  renderNavbar();
 
-    expect(homeLink).toBeInTheDocument();
-    expect(shopLink).toBeInTheDocument();
-    expect(cartLink).toBeInTheDocument();
-    expect(adminLink).toBeInTheDocument();
+  expect(
+    screen.queryByRole("link", { name: "Admin" })
+  ).not.toBeInTheDocument();
+});
+
+test("does not show Logout when logged out", () => {
+  renderNavbar();
+
+  expect(
+    screen.queryByRole("button", { name: "Logout" })
+  ).not.toBeInTheDocument();
 });
