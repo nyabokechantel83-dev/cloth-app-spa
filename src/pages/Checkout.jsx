@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useShop } from "../context/ShopContext";
+import { useNavigate } from "react-router-dom";
 
 function Checkout() {
-  const { cart, total } = useShop();
+  const { cart, total, clearCart } = useShop();
+  const navigate = useNavigate();
 
   const [customer, setCustomer] = useState({
     name: "",
@@ -31,6 +33,10 @@ function Checkout() {
       cart,
       total,
     });
+
+    clearCart();
+
+    navigate("/order-success");
   }
 
   if (cart.length === 0) {
