@@ -11,7 +11,7 @@ function SearchBar({ onSearch }) {
   }
 
   return (
-    <div className="mb-8">
+    <div className="mb-6">
       <label
         className="mb-2 block font-semibold"
         htmlFor="product-search"

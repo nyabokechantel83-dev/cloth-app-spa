@@ -23,7 +23,7 @@ function OrderSuccess() {
 
         <Link
           to="/shop"
-          className="inline-block bg-black text-white px-8 py-3 rounded"
+          className="inline-block bg-orange text-white px-8 py-3 rounded"
         >
           Continue Shopping
         </Link>
@@ -32,7 +32,7 @@ function OrderSuccess() {
       <footer className="bg-gray-900 px-6 py-5 text-center text-sm text-white">
         © 2026 JOVETA CLOTHLINE. All rights reserved.
       </footer>
-      
+
     </div>
   );
 }
