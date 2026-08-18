@@ -32,5 +32,22 @@
       "category": "Accessories",
       "description": "A stylish Brown handbag to complete your outfit."
     }
-  ]
+  ],
+  "users": [
+    {
+      "id": "admin",
+      "name": "Admin",
+      "email": "admin@example.com",
+      "password": "admin123",
+      "role": "admin"
+    },
+    {
+      "name": "",
+      "email": "",
+      "password": "",
+      "role": "user",
+      "id": "tvISsk6w7zc"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
