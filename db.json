@@ -47,6 +47,20 @@
       "password": "",
       "role": "user",
       "id": "tvISsk6w7zc"
+    },
+    {
+      "name": "Taby ",
+      "email": "tabythiongo@gmail.com",
+      "password": "tabys",
+      "role": "user",
+      "id": "hnzLNLWw2_4"
+    },
+    {
+      "name": "Taby ",
+      "email": "tabythiono@gmail.com",
+      "password": "tabys",
+      "role": "user",
+      "id": "RcPpOWWl9eI"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
