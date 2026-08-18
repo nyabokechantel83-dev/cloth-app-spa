@@ -6,9 +6,9 @@ import { ShopProvider } from "../../context/ShopContext";
 
 const product = {
   id: 1,
-  title: "Black Dress",
+  name: "Black Dress",
   price: 50,
-  image: "dress.jpg",
+  image: "https://example.com/black-dress.jpg",
 };
 
 function renderProductCard() {
