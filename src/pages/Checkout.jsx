@@ -77,12 +77,14 @@ function Checkout() {
           <form onSubmit={handleSubmit} className="space-y-4">
 
             <div>
-              <label className="mb-2 block font-semibold">
+              <label 
+              htmlFor="name"
+              className="mb-2 block font-semibold">
                 Full Name
               </label>
 
-              <input
-                className="w-full rounded-lg border border-gray-300 px-4 py-3"
+              <input className="w-full rounded-lg border border-gray-300 px-4 py-3"
+                id="name"
                 type="text"
                 name="name"
                 value={customer.name}
@@ -92,12 +94,14 @@ function Checkout() {
             </div>
 
             <div>
-              <label className="mb-2 block font-semibold">
+              <label 
+              htmlFor="email"
+              className="mb-2 block font-semibold">
                 Email
               </label>
 
-              <input
-                className="w-full rounded-lg border border-gray-300 px-4 py-3"
+              <input className="w-full rounded-lg border border-gray-300 px-4 py-3"
+                id="email"
                 type="email"
                 name="email"
                 value={customer.email}
@@ -107,12 +111,14 @@ function Checkout() {
             </div>
 
             <div>
-              <label className="mb-2 block font-semibold">
+              <label 
+              htmlFor="phone"
+              className="mb-2 block font-semibold">
                 Phone Number
               </label>
 
-              <input
-                className="w-full rounded-lg border border-gray-300 px-4 py-3"
+              <input className="w-full rounded-lg border border-gray-300 px-4 py-3"
+                id="phone"
                 type="tel"
                 name="phone"
                 value={customer.phone}
@@ -122,12 +128,14 @@ function Checkout() {
             </div>
 
             <div>
-              <label className="mb-2 block font-semibold">
+              <label 
+              htmlFor="address"
+              className="mb-2 block font-semibold">
                 Delivery Address
               </label>
 
-              <textarea
-                className="w-full rounded-lg border border-gray-300 px-4 py-3"
+              <textarea className="w-full rounded-lg border border-gray-300 px-4 py-3"
+                id="address"
                 name="address"
                 value={customer.address}
                 onChange={handleChange}

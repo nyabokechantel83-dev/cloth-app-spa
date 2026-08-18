@@ -25,7 +25,7 @@ function Cart() {
 
       {cart.map((item) => (
         <div key={item.id}>
-          <h2>{item.title}</h2>
+          <h2>{item.name}</h2>
 
           <p>KSh {item.price}</p>
 
