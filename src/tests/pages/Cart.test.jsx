@@ -1,4 +1,5 @@
 import { render, screen, fireEvent } from "@testing-library/react";
+import { MemoryRouter } from "react-router-dom";
 import { describe, expect, test } from "vitest";
 import { ShopProvider, useShop } from "../../context/ShopContext";
 import Cart from "../../pages/Cart";
@@ -8,7 +9,7 @@ function TestAddProduct() {
 
   const product = {
     id: 1,
-    title: "Black Hoodie",
+    name: "Black Hoodie",
     price: 2500,
     image: "hoodie.jpg",
     category: "Hoodies",
@@ -25,9 +26,11 @@ function TestAddProduct() {
 describe("Cart", () => {
   test("displays empty cart message when cart is empty", () => {
     render(
+      <MemoryRouter>
       <ShopProvider>
         <Cart />
       </ShopProvider>
+      </MemoryRouter>
     );
 
     expect(
@@ -37,10 +40,12 @@ describe("Cart", () => {
 
   test("displays a product after it is added to the cart", () => {
     render(
-      <ShopProvider>
-        <TestAddProduct />
-        <Cart />
-      </ShopProvider>
+      <MemoryRouter>
+        <ShopProvider>
+          <TestAddProduct />
+          <Cart />
+        </ShopProvider>
+      </MemoryRouter>
     );
 
     fireEvent.click(
@@ -48,6 +53,8 @@ describe("Cart", () => {
         name: "Add Hoodie",
       })
     );
+
+
 
     expect(
       screen.getByText("Black Hoodie")
@@ -60,10 +67,12 @@ describe("Cart", () => {
 
   test("increases product quantity", () => {
     render(
+      <MemoryRouter>
       <ShopProvider>
         <TestAddProduct />
         <Cart />
       </ShopProvider>
+      </MemoryRouter>
     );
 
     fireEvent.click(
@@ -85,10 +94,12 @@ describe("Cart", () => {
 
   test("decreases product quantity", () => {
     render(
+      <MemoryRouter>
       <ShopProvider>
         <TestAddProduct />
         <Cart />
       </ShopProvider>
+      </MemoryRouter>
     );
 
     fireEvent.click(
@@ -116,10 +127,12 @@ describe("Cart", () => {
 
   test("removes product from cart", () => {
     render(
+      <MemoryRouter>
       <ShopProvider>
         <TestAddProduct />
         <Cart />
       </ShopProvider>
+      </MemoryRouter>
     );
 
     fireEvent.click(
@@ -145,10 +158,12 @@ describe("Cart", () => {
 
   test("calculates the correct total", () => {
     render(
+      <MemoryRouter>
       <ShopProvider>
         <TestAddProduct />
         <Cart />
       </ShopProvider>
+      </MemoryRouter>
     );
 
     fireEvent.click(
@@ -164,10 +179,12 @@ describe("Cart", () => {
 
   test("updates total when quantity increases", () => {
     render(
+      <MemoryRouter>
       <ShopProvider>
         <TestAddProduct />
         <Cart />
       </ShopProvider>
+      </MemoryRouter>
     );
 
     fireEvent.click(
