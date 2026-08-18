@@ -2,16 +2,23 @@ import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import App from "../App";
 import { ShopProvider } from "../context/ShopContext";
+import { AuthProvider } from "../context/AuthContext";
 
 function renderApp(route = "/") {
   render(
     <MemoryRouter initialEntries={[route]}>
-      <ShopProvider>
-        <App />
-      </ShopProvider>
-    </MemoryRouter>,
+      <AuthProvider>
+        <ShopProvider>
+          <App />
+        </ShopProvider>
+      </AuthProvider>
+    </MemoryRouter>
   );
 }
+
+beforeEach(() => {
+  localStorage.clear();
+});
 
 test("renders the navbar", () => {
   renderApp();
@@ -23,7 +30,7 @@ test("renders the home page", () => {
   renderApp("/");
 
   expect(
-    screen.getByRole("heading", { name: /Style That/i }),
+    screen.getByRole("heading", { name: /Style That/i })
   ).toBeInTheDocument();
 });
 
@@ -37,14 +44,24 @@ test("renders the cart page", () => {
   renderApp("/cart");
 
   expect(
-    screen.getByRole("heading", { name: "Shopping Cart" }),
+    screen.getByRole("heading", { name: "Shopping Cart" })
   ).toBeInTheDocument();
 });
 
-test("renders the admin page", () => {
+test("redirects normal users away from admin", () => {
+  localStorage.setItem(
+    "user",
+    JSON.stringify({
+      id: 1,
+      name: "User",
+      email: "user@example.com",
+      role: "user",
+    })
+  );
+
   renderApp("/admin");
 
   expect(
-    screen.getByRole("heading", { name: "Admin Dashboard" }),
+    screen.getByRole("heading", { name: "Login" })
   ).toBeInTheDocument();
 });
