@@ -17,7 +17,7 @@ function Signup() {
       await signup(name, email, password);
       navigate("/");
     } catch (error) {
-      alert("error.message");
+      alert(error.message);
     }
   }
 
