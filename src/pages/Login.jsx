@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import "./Login.css";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -27,13 +26,17 @@ function Login() {
   }
 
   return (
-    <div className="login-page">
-      <div className="login-card">
-        <h1>Login</h1>
+    <div className="min-h-screen flex items-center justify-center bg-orange-50 px-4">
+      <div className="w-full max-w-sm bg-white rounded-lg shadow-md p-6">
+        <h1 className="text-2xl font-bold text-orange-600 text-center mb-6">
+          Login
+        </h1>
 
-        <form onSubmit={handleSubmit} className="login-form">
-          <div className="form-group">
-            <label htmlFor="email">Email</label>
+        <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+          <div className="flex flex-col gap-1">
+            <label htmlFor="email" className="text-sm font-medium text-gray-700">
+              Email
+            </label>
             <input
               id="email"
               type="email"
@@ -41,11 +44,14 @@ function Login() {
               value={email}
               onChange={(event) => setEmail(event.target.value)}
               required
+              className="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-orange-600 focus:border-transparent"
             />
           </div>
 
-          <div className="form-group">
-            <label htmlFor="password">Password</label>
+          <div className="flex flex-col gap-1">
+            <label htmlFor="password" className="text-sm font-medium text-gray-700">
+              Password
+            </label>
             <input
               id="password"
               type="password"
@@ -53,10 +59,14 @@ function Login() {
               value={password}
               onChange={(event) => setPassword(event.target.value)}
               required
+              className="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-orange-600 focus:border-transparent"
             />
           </div>
 
-          <button type="submit" className="login-button">
+          <button
+            type="submit"
+            className="bg-orange-600 hover:bg-orange-700 text-white font-medium rounded-lg py-2 transition-colors"
+          >
             Login
           </button>
         </form>
