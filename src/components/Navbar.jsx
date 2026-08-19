@@ -5,12 +5,12 @@ function Navbar() {
   const { user, logout } = useAuth();
 
   return (
-    <nav className="flex justify-between items-center px-6 py-5 bg-orange-100 text-gray-800">
-      <h1 className="text-3xl font-extrabold text-orange-600">
+    <nav className="flex flex-col md:flex-row justify-between items-center px-4 md:px-6 py-4 md:py-5 bg-orange-100 text-gray-800 gap-3 md:gap-0">
+      <h1 className="text-xl md:text-3xl font-extrabold text-orange-600 text-center">
         JOVETA CLOTHLINE
       </h1>
 
-      <div className="flex items-center gap-6">
+      <div className="flex flex-wrap justify-center items-center gap-3 md:gap-6 text-sm md:text-base">
         <NavLink to="/" className="hover:text-orange-600">
           Home
         </NavLink>
@@ -37,7 +37,7 @@ function Navbar() {
 
             <button
               onClick={logout}
-              className="rounded-lg bg-orange-600 px-4 py-2 text-white hover:bg-orange-700"
+              className="rounded-lg bg-orange-600 px-3 md:px-4 py-1.5 md:py-2 text-white hover:bg-orange-700"
             >
               Logout
             </button>
