@@ -2,14 +2,15 @@ import { createContext, useContext, useState } from "react";
 
 const AuthContext = createContext();
 
+const USERS_URL =
+  "https://my-json-server.typicode.com/nyabokechantel83-dev/cloth-app-spa/users";
+
 function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
 
   async function signup(name, email, password) {
     // Check if the email already exists
-    const response = await fetch(
-      `http://localhost:3000/users?email=${email}`
-    );
+    const response = await fetch(`${USERS_URL}?email=${email}`);
 
     const users = await response.json();
 
@@ -18,21 +19,18 @@ function AuthProvider({ children }) {
     }
 
     // Create a new user
-    const createResponse = await fetch(
-      "http://localhost:3000/users",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name,
-          email,
-          password,
-          role: "user",
-        }),
-      }
-    );
+    const createResponse = await fetch(USERS_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        password,
+        role: "user",
+      }),
+    });
 
     const newUser = await createResponse.json();
 
@@ -43,7 +41,7 @@ function AuthProvider({ children }) {
 
   async function login(email, password) {
     const response = await fetch(
-      `http://localhost:3000/users?email=${email}&password=${password}`
+      `${USERS_URL}?email=${email}&password=${password}`
     );
 
     const users = await response.json();
