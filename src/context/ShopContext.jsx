@@ -1,10 +1,37 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 
 const ShopContext = createContext();
 
+const PRODUCTS_URL =
+  "https://my-json-server.typicode.com/nyabokechantel83-dev/cloth-app-spa/products";
+
 export function ShopProvider({ children }) {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [cart, setCart] = useState([]);
+
+  useEffect(() => {
+    async function fetchProducts() {
+      try {
+        setLoading(true);
+        const response = await fetch(PRODUCTS_URL);
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch products");
+        }
+
+        const data = await response.json();
+        setProducts(data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchProducts();
+  }, []);
 
   function addToCart(product) {
     setCart((currentCart) => {
@@ -66,12 +93,10 @@ export function ShopProvider({ children }) {
         .filter((item) => item.quantity > 0)
     );
   }
-  
+
   function clearCart() {
     setCart([]);
   }
-  
-
 
   function addProduct(product) {
     setProducts((currentProducts) => [
@@ -98,6 +123,8 @@ export function ShopProvider({ children }) {
       value={{
         products,
         setProducts,
+        loading,
+        error,
         cart,
         addToCart,
         removeFromCart,
